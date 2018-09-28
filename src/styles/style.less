@@ -219,3 +219,41 @@ header {
     100% {opacity: 1;}
   }
   
+  @media screen and (max-width: 500px) {
+    .mainWrapper {
+      width: 100%;
+    }
+    .logo {
+      min-width: 320px;
+    }
+    .pageWrapper {
+      display: block;
+      section {
+        width: 100%;
+      }
+      aside {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+        > a {
+          width: 48%;
+        }
+      }
+      h2 {
+        font-size: 18px;
+      }
+    }
+    .listContainer {
+      li {
+        width: 48%;
+      }
+    }
+    .videoPopup {
+      > div {
+        width: 97%;
+        height: 100%;
+        margin: 0;
+      }
+    }
+  }
