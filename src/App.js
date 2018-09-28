@@ -7,7 +7,7 @@ import './styles/style.less';
 class App extends React.Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="mainWrapper">
             <header>
                 <a href="#" className="logo">
