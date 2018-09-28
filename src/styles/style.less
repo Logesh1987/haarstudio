@@ -1,0 +1,221 @@
+@import '~normalize.css';
+
+@font-face{
+  font-family: "MyriadPro-Light";
+  src: url(../fonts/MyriadPro-Light.eot),
+       url(../fonts/MyriadPro-Light.woff);
+}
+
+body {
+  background: #fafafa;
+  font-family: "MyriadPro-Light", sans-serif;
+}
+.mainWrapper {
+  display: block;
+}
+header {
+  background-color: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.logo {
+  width: 30%;
+  display: block;
+  margin: 20px auto;
+  img {
+    vertical-align: bottom;
+    display: block;
+    width: 100%;
+  }
+}
+.bannerImg img{
+  width: 100%;
+  display: block;
+  vertical-align: bottom;
+}
+
+.pageWrapper {
+  display: flex;
+  margin: 30px auto;
+  width: 90%;
+  section {
+    width: 85%;
+  }
+  aside {
+    width: 15%;
+    padding-left: 40px;
+  }
+}
+.kinder {
+  background: url('../img/kinderfilme.jpg') no-repeat;
+  background-size: cover;
+  margin-bottom: 20px;
+  position: relative;
+  display: block;
+  &:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+  span {
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    padding: 20px 0;
+  }
+}
+.linkIcon {
+  display: block;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 30px 0;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+  span {
+    text-transform: uppercase;
+    display: block;
+    margin: 10px 0 0;
+  }
+  i {
+    display: block;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: 40%;
+    margin: auto;
+    &:before {
+      content: '';
+      display: block;
+      padding-bottom: 95%;
+    }
+  }
+}
+.iconCat {background-image: url('../img/category_icon.png');}
+.iconForm {background-image: url('../img/feedback_icon.png');}
+
+
+.listContainer {
+  h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #333;
+    margin:  0 0 30px;
+    span {
+      color: #fff;
+      text-transform: uppercase;
+      background-color: #333;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+    small {
+      float: right;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  li {
+    cursor: pointer;
+    color: #333;
+    width: 18%;
+    margin: 20px 0;
+    figure {
+      margin: 0;
+    }
+    img {
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+  h3 {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 10px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  p {
+    margin: 10px 0 0;
+    height: 3.3em;
+    overflow: hidden;
+    font-size: 13px;
+    opacity: 0.6;
+  }
+}
+
+.videoPopup {
+    animation: fade 0.3s;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+    &:before {
+      content: '';
+      width: 0;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .btnClose {
+      color: #fff;
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-color: #333;
+      font-size: 40px;
+      z-index: 1;
+      text-decoration: none;
+      line-height: 0.9;
+      width: 1em;
+      height: 1em;
+      text-align: center;
+    }
+    > div {
+      border: 5px solid #333;
+      background-color: #000;
+      width: 70%;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      margin: 20px 0;
+      &:before {
+        content: '';
+        display: block;
+        padding-bottom: 50%;
+      }
+    }
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  
+  @keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
