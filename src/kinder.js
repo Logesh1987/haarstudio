@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Videobox from './videobox';
+import Form from './form';
 import aData from './mock-data/data.json';
 
 class Kinder extends React.Component {
@@ -10,7 +11,8 @@ class Kinder extends React.Component {
     this.state = {
       data: [],
       selected: null,
-      popup: false
+      popup: false,
+      formBox: false
     }
   }
   fetchData() {
@@ -20,6 +22,13 @@ class Kinder extends React.Component {
     })
 
     this.setState({ data })
+  }
+  handleForm(e) {
+    e.preventDefault();
+
+    this.setState({
+      formBox: true
+    })
   }
   handlePopup(e) {
     let selected = e.currentTarget.getAttribute('data-src');
@@ -31,13 +40,16 @@ class Kinder extends React.Component {
   }
   closePopup(e) {
     e.preventDefault();
-    this.setState({popup: false})
+    this.setState({
+      popup: false,
+      formBox: false
+    })
   }
   componentDidMount() {
     this.fetchData();
   }
   render() {
-    const {data, selected, popup} = this.state
+    const {data, selected, popup, formBox} = this.state
     return (
       <div className="pageWrapper">
         <section>
@@ -60,12 +72,13 @@ class Kinder extends React.Component {
           <i className="iconCat"></i>
             <span>Home</span>
           </Link>
-          <a href="#" className="linkIcon">
+          <a href="#" onClick={this.handleForm.bind(this)} className="linkIcon">
             <i className="iconForm"></i>
             <span>Feedback</span>
           </a>
         </aside>
         {popup && <Videobox src={selected} close={this.closePopup.bind(this)} />}
+        {formBox && <Form close={this.closePopup.bind(this)} />}
       </div>
     )
   }
