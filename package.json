@@ -54,7 +54,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://logeshkrds.github.io/haarstudio/",
+  "homepage": "./",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
