@@ -12,7 +12,8 @@ class Home extends React.Component {
       data: [],
       selected: null,
       popup: false,
-      formBox: false
+      formBox: false,
+      loading: true
     };
   }
   fetchData() {
@@ -34,7 +35,7 @@ class Home extends React.Component {
           if (item.page_type === '1') return item;
         });
     
-        this.setState({ data });
+        this.setState({ data, loading: false });
       })      
   }
   handleForm(e) {
@@ -63,9 +64,10 @@ class Home extends React.Component {
     this.fetchData();
   }
   render() {
-    const { data, selected, popup, formBox } = this.state;
+    const { data, selected, popup, formBox, loading } = this.state;
     return (
       <div className="pageWrapper">
+        {loading && <div className="loading"><i></i></div>}
         <section>
           <div className="listContainer">
             <h2>

@@ -1,9 +1,68 @@
-@import 'normalize.css';
+@import "normalize.css";
 
-@font-face{
+@font-face {
   font-family: "MyriadPro-Light";
-  src: url(../fonts/MyriadPro-Light.eot),
-       url(../fonts/MyriadPro-Light.woff);
+  src: url(../fonts/MyriadPro-Light.eot), url(../fonts/MyriadPro-Light.woff);
+}
+div.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  i,
+  i:before,
+  i:after {
+    display: block;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+  }
+  i {
+    color: #ffffff;
+    font-size: 10px;
+    margin: 80px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+    }
+    &:before {
+      left: -3.5em;
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+    &:after {
+      left: 3.5em;
+    }
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
 }
 
 body {
@@ -30,7 +89,7 @@ header {
     width: 100%;
   }
 }
-.bannerImg img{
+.bannerImg img {
   width: 100%;
   display: block;
   vertical-align: bottom;
@@ -49,13 +108,13 @@ header {
   }
 }
 .kinder {
-  background: url('../img/kinderfilme.jpg') no-repeat;
+  background: url("../img/kinderfilme.jpg") no-repeat;
   background-size: cover;
   margin-bottom: 20px;
   position: relative;
   display: block;
   &:before {
-    content: '';
+    content: "";
     display: block;
     padding-bottom: 100%;
   }
@@ -93,15 +152,18 @@ header {
     width: 40%;
     margin: auto;
     &:before {
-      content: '';
+      content: "";
       display: block;
       padding-bottom: 95%;
     }
   }
 }
-.iconCat {background-image: url('../img/category_icon.png');}
-.iconForm {background-image: url('../img/feedback_icon.png');}
-
+.iconCat {
+  background-image: url("../img/category_icon.png");
+}
+.iconForm {
+  background-image: url("../img/feedback_icon.png");
+}
 
 .listContainer {
   h2 {
@@ -109,7 +171,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 5px solid #333;
-    margin:  0 0 30px;
+    margin: 0 0 30px;
     span {
       color: #fff;
       text-transform: uppercase;
@@ -167,15 +229,15 @@ header {
   left: 0;
   top: 0;
   z-index: 99;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   text-align: center;
   &:before {
-    content: '';
+    content: "";
     width: 0;
     height: 100%;
     display: inline-block;
     vertical-align: middle;
-  }  
+  }
   .btnClose {
     color: #fff;
     position: absolute;
@@ -228,7 +290,7 @@ header {
     }
   }
   .frmCnt {
-    .formGrp  {
+    .formGrp {
       margin: 20px 0 0;
       > div {
         margin-bottom: 20px;
@@ -259,7 +321,9 @@ header {
       padding: 0.7em 1.5em;
       cursor: pointer;
     }
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       box-sizing: border-box;
       background-color: #c1c1c1;
       font-family: inherit;
@@ -289,7 +353,7 @@ header {
       opacity: 0;
     }
     i {
-      background-image: url('../img/sprite_smiley.png');
+      background-image: url("../img/sprite_smiley.png");
       background-repeat: no-repeat;
       background-size: auto 200%;
       width: 100%;
@@ -297,24 +361,44 @@ header {
       display: block;
     }
     &[for="sm_1"] {
-      i {background-position: 100% 0;}
-      input:checked + i {background-position: 100% 100%;}
+      i {
+        background-position: 100% 0;
+      }
+      input:checked + i {
+        background-position: 100% 100%;
+      }
     }
     &[for="sm_2"] {
-      i {background-position: 75% 0;}
-      input:checked + i {background-position: 75% 100%;}
+      i {
+        background-position: 75% 0;
+      }
+      input:checked + i {
+        background-position: 75% 100%;
+      }
     }
     &[for="sm_3"] {
-      i {background-position: 50% 0;}
-      input:checked + i {background-position: 50% 100%;}
+      i {
+        background-position: 50% 0;
+      }
+      input:checked + i {
+        background-position: 50% 100%;
+      }
     }
     &[for="sm_4"] {
-      i {background-position: 25% 0;}
-      input:checked + i {background-position: 25% 100%;}
+      i {
+        background-position: 25% 0;
+      }
+      input:checked + i {
+        background-position: 25% 100%;
+      }
     }
     &[for="sm_5"] {
-      i {background-position: 0 0;}
-      input:checked + i {background-position: 0 100%;}
+      i {
+        background-position: 0 0;
+      }
+      input:checked + i {
+        background-position: 0 100%;
+      }
     }
   }
 }
@@ -327,10 +411,10 @@ header {
   left: 0;
   top: 0;
   z-index: 99;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   text-align: center;
   &:before {
-    content: '';
+    content: "";
     width: 0;
     height: 100%;
     display: inline-block;
@@ -359,7 +443,7 @@ header {
     position: relative;
     margin: 20px 0;
     &:before {
-      content: '';
+      content: "";
       display: block;
       padding-bottom: 50%;
     }
@@ -372,47 +456,51 @@ header {
     top: 0;
   }
 }
-  
-  @keyframes fade {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
   }
-  
-  @media screen and (max-width: 500px) {
-    .mainWrapper {
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mainWrapper {
+    width: 100%;
+  }
+  .logo {
+    min-width: 320px;
+  }
+  .pageWrapper {
+    display: block;
+    section {
       width: 100%;
     }
-    .logo {
-      min-width: 320px;
-    }
-    .pageWrapper {
-      display: block;
-      section {
-        width: 100%;
-      }
-      aside {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0;
-        > a {
-          width: 48%;
-        }
-      }
-      h2 {
-        font-size: 18px;
-      }
-    }
-    .listContainer {
-      li {
+    aside {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0;
+      > a {
         width: 48%;
       }
     }
-    .videoPopup {
-      > div {
-        width: 97%;
-        height: 100%;
-        margin: 0;
-      }
+    h2 {
+      font-size: 18px;
     }
   }
+  .listContainer {
+    li {
+      width: 48%;
+    }
+  }
+  .videoPopup {
+    > div {
+      width: 97%;
+      height: 100%;
+      margin: 0;
+    }
+  }
+}

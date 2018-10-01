@@ -12,7 +12,8 @@ class Admin extends Component {
       poster_image: "",
       video_url: "",
       page_type: "1",
-      data: null
+      data: null,
+      loading: true
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +29,7 @@ class Admin extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-
+    this.setState({loading: true });
     const btn = document.querySelector("#formButton");
     const message = document.querySelector(".message");
     const _this = this;
@@ -51,11 +52,11 @@ class Admin extends Component {
         btn.innerHTML = "Submit";
 
         _this.fetchData();
+        _this.setState({loading: false });
 
         setTimeout(() => {
           message.innerHTML = "";
         }, 1500);
-
         console.log("Document written with ID: ", docRef.id);
       })
       .catch(function(error) {
@@ -71,6 +72,7 @@ class Admin extends Component {
     });
   };
   fetchData() {
+    this.setState({loading: true });
     let data = [];
     let initialData = fire.firestore();
     initialData.settings({
@@ -85,7 +87,7 @@ class Admin extends Component {
           const id = item.id;
           data.push({ id, ...detail });
         });
-        this.setState({ data });
+        this.setState({ data, loading: false });
       });
   }
   handleDelete(e) {
@@ -109,9 +111,10 @@ class Admin extends Component {
     this.fetchData();
   }
   render() {
-    const data = this.state.data;
+    const {data, loading} = this.state;
     return (
       <div>
+        {loading && <div className="loading"><i></i></div>}
         <div className="formWrapper">
           <form onSubmit={this.handleSubmit}>
             <ul>
