@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './home';
 import Kinder from './kinder';
+import Admin from './admin';
 import './styles/style.less';
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/kinderfilme"  component={Kinder} />
+              <Route exact path="/admin"  component={Admin} />
               <Route render={props => (<h2>404</h2>)}/>
             </Switch>
         </div>

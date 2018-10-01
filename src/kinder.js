@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Videobox from './videobox';
 import Form from './form';
-import aData from './mock-data/data.json';
+import fire from "./fire";
 
 class Kinder extends React.Component {
   constructor(props) {
@@ -16,12 +16,26 @@ class Kinder extends React.Component {
     }
   }
   fetchData() {
-    let data = aData.filter(item => {
-      if(item.page_type === '2')
-        return item
-    })
+    let iData = [];
+    let initialData = fire.firestore();
+    initialData.settings({
+      timestampsInSnapshots: true
+    });
+    initialData.collection("data")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(item => {
+          const detail = item.data();
+          const id = item.id;
+          iData.push({id, ...detail});
 
-    this.setState({ data })
+        })  
+        let data = iData.filter(item => {
+          if (item.page_type === '2') return item;
+        });
+    
+        this.setState({ data });
+      })      
   }
   handleForm(e) {
     e.preventDefault();
